@@ -7,12 +7,27 @@
 class Stack:
     def __init__(self,n):
         self.stack = []
-        self.n = n
+        self.n = n # max no. of eleements in stacks 
     def push(self,k):
-        self.stack.append(k)
+        if len(self.stack)<self.n:
+         self.stack.append(k)
+        else:
+           print("The stack is full")
     def display(self):
         print(self.stack)
-
+    
+    def pop(self):
+       if len(self.stack)==0:
+        print("stack is empty")
+       else:
+        self.stack.pop(-1)
+    def top(self):
+       if len(self.stack)==0:
+        print("stack is empty")
+       else:
+          return self.stack[-1]
+    def size(self):
+       return len(self.stack)
 s = Stack(3)
 s.display()
 s.push(1)
@@ -21,7 +36,13 @@ s.push(7)
 s.display()
 s.push(6)
 s.display()
-s.push(10)
+
+print(s.size())
+
+s.pop()
 s.display()
+print(s.top())
+s.display()
+
 
 
